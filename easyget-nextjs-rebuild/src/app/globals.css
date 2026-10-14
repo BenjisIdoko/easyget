@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --font-display: "Sora", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
+
+  --background: #fbfaff;
+  --surface: #ffffff;
+  --foreground: #1b1527;
+  --muted: #6b6578;
+
+  --brand: #6d28d9;
+  --brand-dark: #4c1d95;
+  --brand-light: #ede9fe;
+
+  --pharmacy: #0f766e;
+  --pharmacy-light: #ccfbf1;
+
+  --food: #d97706;
+  --food-light: #fef3c7;
+
+  --border: #e7e2f3;
+  --danger: #dc2626;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light: var(--brand-light);
+
+  --color-pharmacy: var(--pharmacy);
+  --color-pharmacy-light: var(--pharmacy-light);
+
+  --color-food: var(--food);
+  --color-food-light: var(--food-light);
+
+  --color-border: var(--border);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-border bg-surface px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+}
