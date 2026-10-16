@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { products } from "@/lib/products";
+import { formatNaira } from "@/lib/format";
 import type { CartLine, CustomerDetails } from "@/lib/types";
 
 interface CheckoutBody {
@@ -7,78 +8,71 @@ interface CheckoutBody {
   customer: CustomerDetails;
 }
 
-const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
+// Payment is cash on delivery for now: the order is handed to the pharmacy
+// team as a pre-filled WhatsApp message instead of being charged online.
 export async function POST(request: Request) {
   const body = (await request.json()) as CheckoutBody;
 
   if (!body?.lines?.length) {
     return NextResponse.json({ error: "Cart is empty." }, { status: 400 });
   }
-  if (!body.customer?.email || !body.customer?.phone || !body.customer?.fullName) {
+  if (!body.customer?.fullName || !body.customer?.phone || !body.customer?.address) {
     return NextResponse.json(
-      { error: "Name, phone and email are required." },
+      { error: "Name, phone and delivery address are required." },
       { status: 400 }
     );
   }
 
-  // Recompute the total server-side from known product prices — never trust
-  // a client-supplied amount.
-  const totalNaira = body.lines.reduce((sum, line) => {
-    const product = products.find((p) => p.id === line.productId);
-    return sum + (product ? product.priceNaira * line.quantity : 0);
-  }, 0);
-
-  if (totalNaira <= 0) {
-    return NextResponse.json({ error: "Could not price this cart." }, { status: 400 });
-  }
-
-  if (!PAYSTACK_SECRET_KEY) {
+  if (!WHATSAPP_NUMBER) {
     return NextResponse.json(
       {
         error:
-          "Payments aren't configured yet. Add PAYSTACK_SECRET_KEY to .env.local (see .env.example) to enable checkout.",
+          "Orders aren't configured yet. Set NEXT_PUBLIC_WHATSAPP_NUMBER (see .env.example) to enable checkout.",
       },
       { status: 503 }
     );
   }
 
-  const reference = `easyget_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-
-  const init = await fetch("https://api.paystack.co/transaction/initialize", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: body.customer.email,
-      amount: totalNaira * 100, // Paystack expects kobo
-      reference,
-      currency: "NGN",
-      callback_url: `${SITE_URL}/checkout/success`,
-      metadata: {
-        fullName: body.customer.fullName,
-        phone: body.customer.phone,
-        address: body.customer.address,
-        notes: body.customer.notes ?? "",
-        lines: body.lines,
-      },
-    }),
+  // Price every line server-side from known products — never trust a
+  // client-supplied amount or name.
+  const priced = body.lines.flatMap((line) => {
+    const product = products.find((p) => p.id === line.productId);
+    const quantity = Math.floor(Number(line.quantity));
+    if (!product || !(quantity > 0)) return [];
+    return [{ product, quantity, subtotal: product.priceNaira * quantity }];
   });
+  const totalNaira = priced.reduce((sum, l) => sum + l.subtotal, 0);
 
-  const payload = await init.json();
-
-  if (!init.ok || !payload.status) {
-    return NextResponse.json(
-      { error: payload.message ?? "Paystack could not start this transaction." },
-      { status: 502 }
-    );
+  if (totalNaira <= 0) {
+    return NextResponse.json({ error: "Could not price this cart." }, { status: 400 });
   }
 
+  const reference = `EG-${Date.now().toString(36).toUpperCase()}${Math.random()
+    .toString(36)
+    .slice(2, 5)
+    .toUpperCase()}`;
+
+  const { fullName, phone, email, address, notes } = body.customer;
+  const message = [
+    `New EasyGet order ${reference}`,
+    "",
+    ...priced.map(
+      (l) => `• ${l.product.name} × ${l.quantity} — ${formatNaira(l.subtotal)}`
+    ),
+    "",
+    `Total: ${formatNaira(totalNaira)} (cash on delivery)`,
+    "",
+    `Name: ${fullName}`,
+    `Phone: ${phone}`,
+    ...(email ? [`Email: ${email}`] : []),
+    `Address: ${address}`,
+    ...(notes ? [`Notes: ${notes}`] : []),
+  ].join("\n");
+
   return NextResponse.json({
-    authorizationUrl: payload.data.authorization_url,
-    reference: payload.data.reference,
+    reference,
+    whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
   });
 }

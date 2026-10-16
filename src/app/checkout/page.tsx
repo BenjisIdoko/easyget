@@ -49,9 +49,13 @@ export default function CheckoutPage() {
         return;
       }
 
-      window.location.href = data.authorizationUrl;
+      const params = new URLSearchParams({
+        reference: data.reference,
+        wa: data.whatsappUrl,
+      });
+      window.location.href = `/checkout/success?${params.toString()}`;
     } catch {
-      setError("Could not reach the payment service. Please try again.");
+      setError("Could not place your order. Please try again.");
       setSubmitting(false);
     }
   }
@@ -85,9 +89,8 @@ export default function CheckoutPage() {
           </Field>
         </div>
 
-        <Field label="Email">
+        <Field label="Email (optional)">
           <input
-            required
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -119,8 +122,11 @@ export default function CheckoutPage() {
           disabled={submitting}
           className="w-full rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-60"
         >
-          {submitting ? "Redirecting to Paystack…" : `Pay ${formatNaira(subtotalNaira)} with Paystack`}
+          {submitting ? "Placing order…" : `Place order · ${formatNaira(subtotalNaira)}`}
         </button>
+        <p className="text-center text-xs text-muted">
+          Pay cash on delivery. We&apos;ll confirm your order on WhatsApp.
+        </p>
       </form>
 
       <div className="h-fit rounded-2xl border border-border bg-surface p-6">
