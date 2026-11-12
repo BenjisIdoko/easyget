@@ -35,9 +35,27 @@ Open http://localhost:3000.
 | Cart (add/remove/update quantity, persists locally) | Working |
 | Checkout form → Paystack | Working once `PAYSTACK_SECRET_KEY` is set |
 | Payment verification (`/checkout/success`) | Working once the key is set |
+| Grocery Concierge (`/grocery-concierge`) — budget+list deposit via Paystack | Working once `PAYSTACK_SECRET_KEY` is set |
+| Catering & Events (`/catering`) — custom quote request | Working — opens a pre-filled WhatsApp message, no payment |
 | WhatsApp support / pharmacist / dietary consult links | Working, point at `NEXT_PUBLIC_WHATSAPP_NUMBER` |
 | Real product catalog (Supabase) | **Not wired yet** — see below |
-| Order persistence (Supabase) | **Not wired yet** — see below |
+| Order / concierge / catering request persistence (Supabase) | **Not wired yet** — see below |
+
+### The four pillars
+
+Matches the EasyGet BMC/TRD service pillars:
+
+1. **Pharmacy** — catalog + cart + Paystack checkout.
+2. **Food Market** — catalog + cart + Paystack checkout (same flow as Pharmacy).
+3. **Grocery Concierge** — not a catalog: the customer sends a shopping list
+   and a budget, pays a deposit for that budget via `/api/concierge/checkout`,
+   and a shopper buys the items at a real supermarket. Reconciliation
+   against the till receipt (refund or top-up) happens on delivery, outside
+   this app.
+4. **Catering & Events** — no fixed price, so `/catering` doesn't take
+   payment at all. It builds a WhatsApp message from the event details and
+   hands the quote conversation to a human, matching the BMC's "Direct
+   human touchpoints via WhatsApp... for custom bulk catering quotes."
 
 ## Turning on Paystack
 
@@ -54,8 +72,9 @@ yet" message instead of silently failing.
 
 1. Create a project at [supabase.com](https://supabase.com).
 2. Run `supabase/schema.sql` in the SQL editor — it creates `products`,
-   `orders`, and `order_items` with RLS enabled (products are publicly
-   readable; orders are server-only via the service role key).
+   `orders`, `order_items`, `concierge_requests` and `catering_requests`
+   with RLS enabled (products are publicly readable; everything else is
+   server-only via the service role key).
 3. Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in
    `.env.local`. `src/lib/supabase.ts` picks these up automatically.
 4. Replace the calls to `src/lib/products.ts` (`getProductsByCategory`,

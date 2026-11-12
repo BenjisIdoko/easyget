@@ -21,12 +21,13 @@ export default function Home() {
             Medicine and meals, to your door — fast.
           </h1>
           <p className="mt-4 text-base text-muted sm:text-lg">
-            EasyGet pairs a licensed pharmacy with a local food market, so one
-            delivery run can cover what your household actually needs today.
+            EasyGet pairs a licensed pharmacy with a local food market, a
+            grocery concierge and event catering — one platform for
+            everything your household or gathering needs today.
           </p>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2">
           <Link
             href="/pharmacy"
             className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-pharmacy/10"
@@ -58,6 +59,40 @@ export default function Home() {
             </p>
             <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-food">
               Enter Food Market <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </span>
+          </Link>
+
+          <Link
+            href="/grocery-concierge"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand-dark">
+              Budget + List
+            </span>
+            <h2 className="mt-4 font-display text-2xl font-semibold">Grocery Concierge</h2>
+            <p className="mt-2 text-sm text-muted">
+              Send a shopping list and a budget — we shop your supermarket
+              run and deliver it with the official till receipt.
+            </p>
+            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+              Start a request <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </span>
+          </Link>
+
+          <Link
+            href="/catering"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand-dark">
+              Bulk & Events
+            </span>
+            <h2 className="mt-4 font-display text-2xl font-semibold">Catering & Events</h2>
+            <p className="mt-2 text-sm text-muted">
+              Barrels of soup, party jollof and drinks for gatherings — get
+              a custom quote on WhatsApp.
+            </p>
+            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+              Get a quote <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </span>
           </Link>
         </div>

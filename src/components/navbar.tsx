@@ -8,6 +8,8 @@ import { useCart } from "@/context/cart-context";
 const links = [
   { href: "/pharmacy", label: "Pharmacy" },
   { href: "/food-market", label: "Food Market" },
+  { href: "/grocery-concierge", label: "Grocery Concierge" },
+  { href: "/catering", label: "Catering" },
   { href: "/#consultations", label: "Consultations" },
 ];
 
@@ -25,7 +27,7 @@ export function Navbar() {
           EasyGet
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/80 md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/80 lg:flex">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="transition hover:text-brand">
               {l.label}
@@ -47,7 +49,7 @@ export function Navbar() {
             )}
           </Link>
           <button
-            className="grid h-10 w-10 place-items-center rounded-full border border-border md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-border lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -57,7 +59,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-surface px-5 py-4 md:hidden">
+        <nav className="border-t border-border bg-surface px-5 py-4 lg:hidden">
           <ul className="flex flex-col gap-4 text-sm font-medium">
             {links.map((l) => (
               <li key={l.href}>

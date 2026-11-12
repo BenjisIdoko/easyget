@@ -38,3 +38,25 @@ export interface Order {
   status: "pending" | "paid" | "fulfilled" | "cancelled";
   createdAt: string;
 }
+
+// "Budget + List" grocery concierge: the customer sends a shopping list and
+// a budget, pays a deposit for that budget, and a shopper buys the items at
+// a real supermarket. Reconciliation against the till receipt happens on
+// delivery, not in this app.
+export interface GroceryConciergeRequest {
+  customer: CustomerDetails;
+  shoppingList: string[];
+  budgetNaira: number;
+  preferredStore?: string;
+}
+
+// Bulk & event catering: no fixed catalog price, so this produces a
+// WhatsApp-ready quote request instead of a checkout.
+export interface CateringRequest {
+  fullName: string;
+  phone: string;
+  eventDate: string;
+  guestCount: number;
+  menuNotes: string;
+  budgetRangeNaira?: number;
+}

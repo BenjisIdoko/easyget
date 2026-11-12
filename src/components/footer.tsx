@@ -25,6 +25,8 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li><Link href="/pharmacy" className="hover:text-brand">Pharmacy</Link></li>
             <li><Link href="/food-market" className="hover:text-brand">Food Market</Link></li>
+            <li><Link href="/grocery-concierge" className="hover:text-brand">Grocery Concierge</Link></li>
+            <li><Link href="/catering" className="hover:text-brand">Catering &amp; Events</Link></li>
             <li><Link href="/cart" className="hover:text-brand">Cart</Link></li>
           </ul>
         </div>

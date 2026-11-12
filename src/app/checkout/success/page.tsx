@@ -1,24 +1,60 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, Loader2, MessageCircle } from "lucide-react";
+import { CheckCircle2, XCircle, AlertTriangle, Loader2 } from "lucide-react";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
+
+const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
+
+async function verify(reference: string) {
+  if (!PAYSTACK_SECRET_KEY) {
+    return { ok: false, reason: "not-configured" as const };
+  }
+
+  const res = await fetch(
+    `https://api.paystack.co/transaction/verify/${reference}`,
+    { headers: { Authorization: `Bearer ${PAYSTACK_SECRET_KEY}` }, cache: "no-store" }
+  );
+  const payload = await res.json();
+
+  if (!res.ok || !payload.status) {
+    return { ok: false, reason: "failed" as const };
+  }
+
+  return {
+    ok: payload.data.status === "success",
+    reason: payload.data.status === "success" ? ("paid" as const) : ("failed" as const),
+  };
+}
 
 // searchParams is runtime-only data, so the part of the page that reads it
 // has to sit inside a Suspense boundary for the route to prerender at all.
 async function SuccessContent(props: PageProps<"/checkout/success">) {
-  const { reference, wa } = (await props.searchParams) as {
-    reference?: string;
-    wa?: string;
-  };
+  const { reference } = (await props.searchParams) as { reference?: string };
 
-  // Only ever link to WhatsApp — this param comes from the URL.
-  const whatsappUrl = wa?.startsWith("https://wa.me/") ? wa : null;
-
-  if (!reference || !whatsappUrl) {
+  if (!reference) {
     return (
-      <StatusPanel icon={XCircle} title="Order not found" tone="danger">
-        We couldn&apos;t find an order for this page. Please place your order
-        again from the cart.
+      <StatusPanel icon={XCircle} title="Missing reference" tone="danger">
+        We couldn&apos;t find a payment reference for this page.
+      </StatusPanel>
+    );
+  }
+
+  const result = await verify(reference);
+
+  if (result.reason === "not-configured") {
+    return (
+      <StatusPanel icon={AlertTriangle} title="Payments not configured" tone="warning">
+        Add <code>PAYSTACK_SECRET_KEY</code> to your environment to verify
+        transactions. Reference: <code>{reference}</code>
+      </StatusPanel>
+    );
+  }
+
+  if (!result.ok) {
+    return (
+      <StatusPanel icon={XCircle} title="Payment not confirmed" tone="danger">
+        We couldn&apos;t confirm this payment. If you were charged, contact
+        support with reference <code>{reference}</code>.
       </StatusPanel>
     );
   }
@@ -26,18 +62,9 @@ async function SuccessContent(props: PageProps<"/checkout/success">) {
   return (
     <>
       <ClearCartOnMount />
-      <StatusPanel icon={CheckCircle2} title="Almost done — send your order" tone="success">
-        Your order <code>{reference}</code> is ready. Tap the button below to
-        send it to our team on WhatsApp. You&apos;ll pay cash on delivery.
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 rounded-full bg-pharmacy px-5 py-2.5 text-sm font-semibold text-white"
-        >
-          <MessageCircle className="h-4 w-4" />
-          Send order on WhatsApp
-        </a>
+      <StatusPanel icon={CheckCircle2} title="Payment received" tone="success">
+        Thanks — your order is confirmed and our team has been notified.
+        Reference <code>{reference}</code>.
       </StatusPanel>
     </>
   );
@@ -55,7 +82,7 @@ function LoadingPanel() {
   return (
     <section className="container-page flex flex-col items-center py-24 text-center">
       <Loader2 className="h-8 w-8 animate-spin text-brand" />
-      <p className="mt-4 text-sm text-muted">Loading your order…</p>
+      <p className="mt-4 text-sm text-muted">Confirming your payment…</p>
     </section>
   );
 }
@@ -68,12 +95,13 @@ function StatusPanel({
 }: {
   icon: typeof CheckCircle2;
   title: string;
-  tone: "success" | "danger";
+  tone: "success" | "danger" | "warning";
   children: React.ReactNode;
 }) {
   const toneClass = {
     success: "text-pharmacy bg-pharmacy-light",
     danger: "text-danger bg-red-50",
+    warning: "text-amber-700 bg-amber-50",
   }[tone];
 
   return (
@@ -82,12 +110,10 @@ function StatusPanel({
         <Icon className="h-7 w-7" />
       </span>
       <h1 className="mt-5 font-display text-2xl font-semibold">{title}</h1>
-      <div className="mt-2 flex max-w-md flex-col items-center text-sm text-muted">
-        {children}
-      </div>
+      <p className="mt-2 max-w-md text-sm text-muted">{children}</p>
       <Link
         href="/"
-        className="mt-6 rounded-full border border-border px-5 py-2.5 text-sm font-semibold"
+        className="mt-6 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white"
       >
         Back to EasyGet
       </Link>

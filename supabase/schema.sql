@@ -63,3 +63,41 @@ create policy "Public can read in-stock products"
 -- No insert/update/delete policies for anon on orders/order_items — those
 -- tables are only ever touched from the /api/checkout route handler using
 -- SUPABASE_SERVICE_ROLE_KEY (server-only, never exposed to the browser).
+
+-- Grocery Concierge ("Budget + List") — not wired yet. The /api/concierge
+-- route only talks to Paystack today; once Supabase is in use, write a
+-- request row here from that route before/after initializing the deposit.
+create table concierge_requests (
+  id uuid primary key default gen_random_uuid(),
+  reference text unique not null,
+  full_name text not null,
+  phone text not null,
+  email text not null,
+  address text not null,
+  preferred_store text,
+  shopping_list text[] not null,
+  budget_naira integer not null check (budget_naira >= 0),
+  notes text,
+  status order_status not null default 'pending',
+  created_at timestamptz not null default now()
+);
+
+-- Bulk & Event Catering — the /catering page currently only opens a
+-- pre-filled WhatsApp message with these same fields; this table is for
+-- once you want a record of quote requests beyond the WhatsApp thread.
+create table catering_requests (
+  id uuid primary key default gen_random_uuid(),
+  full_name text not null,
+  phone text not null,
+  event_date date not null,
+  guest_count integer not null check (guest_count > 0),
+  menu_notes text not null,
+  budget_range_naira integer,
+  created_at timestamptz not null default now()
+);
+
+alter table concierge_requests enable row level security;
+alter table catering_requests enable row level security;
+
+-- No public policies on either table — same server-only pattern as
+-- orders/order_items above.
