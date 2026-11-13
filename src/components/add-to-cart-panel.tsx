@@ -1,16 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRight, Check } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { formatNaira } from "@/lib/format";
 import { QuantityStepper } from "@/components/quantity-stepper";
 
-export function AddToCartPanel({ productId }: { productId: string }) {
+export function AddToCartPanel({
+  productId,
+  priceNaira,
+}: {
+  productId: string;
+  priceNaira: number;
+}) {
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       <QuantityStepper quantity={quantity} onChange={(n) => setQuantity(Math.max(1, n))} />
       <button
         onClick={() => {
@@ -18,9 +26,12 @@ export function AddToCartPanel({ productId }: { productId: string }) {
           setAdded(true);
           setTimeout(() => setAdded(false), 1500);
         }}
-        className="flex-1 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+        className="flex h-14 flex-1 items-center justify-between rounded-full bg-ink pl-6 pr-2 text-sm font-semibold text-white transition hover:bg-brand-dark"
       >
-        {added ? "Added to cart ✓" : "Add to cart"}
+        <span>{added ? "Added to cart" : `Add to cart · ${formatNaira(priceNaira * quantity)}`}</span>
+        <span className="grid h-10 w-10 place-items-center rounded-full bg-brand">
+          {added ? <Check className="h-5 w-5" /> : <ArrowRight className="h-5 w-5" />}
+        </span>
       </button>
     </div>
   );

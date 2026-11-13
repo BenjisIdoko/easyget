@@ -49,7 +49,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
         </div>
 
         <div className="mt-6">
-          <AddToCartPanel productId={product.id} />
+          <AddToCartPanel productId={product.id} priceNaira={product.priceNaira} />
         </div>
       </div>
     </section>
