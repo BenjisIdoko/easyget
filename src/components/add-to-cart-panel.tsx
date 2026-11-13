@@ -28,7 +28,16 @@ export function AddToCartPanel({
         }}
         className="flex h-14 flex-1 items-center justify-between rounded-full bg-ink pl-6 pr-2 text-sm font-semibold text-white transition hover:bg-brand-dark"
       >
-        <span>{added ? "Added to cart" : `Add to cart · ${formatNaira(priceNaira * quantity)}`}</span>
+        <span className="whitespace-nowrap">
+          {added ? (
+            "Added"
+          ) : (
+            <>
+              <span className="min-[420px]:hidden">Add</span>
+              <span className="hidden min-[420px]:inline">Add to cart</span> · {formatNaira(priceNaira * quantity)}
+            </>
+          )}
+        </span>
         <span className="grid h-10 w-10 place-items-center rounded-full bg-brand">
           {added ? <Check className="h-5 w-5" /> : <ArrowRight className="h-5 w-5" />}
         </span>

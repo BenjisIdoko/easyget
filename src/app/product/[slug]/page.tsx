@@ -20,7 +20,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
   return (
     <section className="container-page grid gap-0 pb-40 pt-4 md:grid-cols-2 md:gap-10 md:pb-12 md:pt-10">
       <div className="relative h-[42vh] min-h-72 overflow-hidden rounded-[2rem] md:h-full md:min-h-[28rem]">
-        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" />
+        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" priority />
         <Link
           href={backHref}
           aria-label="Back"
