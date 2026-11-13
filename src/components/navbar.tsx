@@ -18,7 +18,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 bg-surface/80 backdrop-blur-md md:border-b md:border-border/80">
+    <header className="sticky top-0 z-40 bg-surface/80 backdrop-blur-md lg:border-b lg:border-border/80">
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-brand-dark">
           <span className="grid h-9 w-9 place-items-center rounded-2xl bg-brand text-sm text-white">
@@ -27,11 +27,11 @@ export function Navbar() {
           EasyGet
         </Link>
 
-        <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1.5 text-xs font-medium text-muted shadow-sm md:hidden">
+        <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1.5 text-xs font-medium text-muted shadow-sm lg:hidden">
           <MapPin className="h-3.5 w-3.5 text-brand" /> Lagos
         </span>
 
-        <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
+        <nav className="hidden items-center gap-1 text-sm font-medium lg:flex">
           {links.map((l) => {
             const active = pathname === l.href;
             return (
@@ -51,7 +51,7 @@ export function Navbar() {
         <Link
           href="/cart"
           className="relative grid h-11 w-11 place-items-center rounded-full bg-ink text-white transition hover:bg-brand-dark"
-          aria-label="View cart"
+          aria-label={itemCount > 0 ? `View cart, ${itemCount} items` : "View cart"}
         >
           <ShoppingCart className="h-5 w-5" />
           {itemCount > 0 && (

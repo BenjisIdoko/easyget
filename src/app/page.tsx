@@ -25,7 +25,7 @@ const promo = {
 
 const services = [
   { href: "/pharmacy", title: "Pharmacy", note: "Verified healthcare", icon: Pill, tone: "bg-pharmacy-light text-pharmacy" },
-  { href: "/food-market", title: "Food Market", note: "Fresh & fast kitchen", icon: UtensilsCrossed, tone: "bg-food-light text-food" },
+  { href: "/food-market", title: "Food Market", note: "Fresh & fast kitchen", icon: UtensilsCrossed, tone: "bg-food-light text-food-dark" },
   { href: "/grocery-concierge", title: "Grocery Concierge", note: "Budget + list", icon: ShoppingBasket, tone: "bg-brand-light text-brand-dark" },
   { href: "/catering", title: "Catering & Events", note: "Bulk quotes", icon: PartyPopper, tone: "bg-brand-light text-brand-dark" },
 ] as const;

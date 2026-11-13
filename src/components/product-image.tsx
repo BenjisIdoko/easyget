@@ -14,12 +14,12 @@ export function ProductImage({
   product,
   className = "",
   sizes = "(min-width: 1024px) 25vw, 50vw",
-  priority = false,
+  preload = false,
 }: {
   product: Product;
   className?: string;
   sizes?: string;
-  priority?: boolean;
+  preload?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
   const showPhoto = Boolean(product.imageUrl) && !failed;
@@ -31,7 +31,7 @@ export function ProductImage({
           src={product.imageUrl!}
           alt={product.name}
           fill
-          priority={priority}
+          preload={preload}
           sizes={sizes}
           className="object-cover"
           onError={() => setFailed(true)}

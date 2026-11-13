@@ -33,8 +33,8 @@ export function AddToCartPanel({
             "Added"
           ) : (
             <>
-              <span className="min-[420px]:hidden">Add</span>
-              <span className="hidden min-[420px]:inline">Add to cart</span> · {formatNaira(priceNaira * quantity)}
+              <span className="min-[460px]:hidden">Add</span>
+              <span className="hidden min-[460px]:inline">Add to cart</span> · {formatNaira(priceNaira * quantity)}
             </>
           )}
         </span>

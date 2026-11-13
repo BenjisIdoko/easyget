@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/cart-context";
 import { products } from "@/lib/products";
@@ -23,9 +24,12 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <section className="container-page py-20 text-center">
+      <section className="container-page flex flex-col items-center py-16 text-center">
         <h1 className="font-display text-2xl font-semibold">Nothing to check out</h1>
         <p className="mt-2 text-sm text-muted">Add items to your cart first.</p>
+        <Link href="/pharmacy" className="pill-btn mt-6">
+          Browse the pharmacy
+        </Link>
       </section>
     );
   }

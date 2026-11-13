@@ -20,7 +20,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
   return (
     <section className="container-page grid gap-0 pb-40 pt-4 md:grid-cols-2 md:gap-10 md:pb-12 md:pt-10">
       <div className="relative h-[42vh] min-h-72 overflow-hidden rounded-[2rem] md:h-full md:min-h-[28rem]">
-        <ProductImage product={product} sizes="(min-width: 768px) 50vw, 100vw" priority />
+        <ProductImage key={product.id} product={product} sizes="(min-width: 768px) 50vw, 100vw" preload />
         <Link
           href={backHref}
           aria-label="Back"
@@ -35,7 +35,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
           className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${
             product.category === "pharmacy"
               ? "bg-pharmacy-light text-pharmacy"
-              : "bg-food-light text-food"
+              : "bg-food-light text-food-dark"
           }`}
         >
           {product.subcategory}
@@ -60,7 +60,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
         )}
 
         {product.inStock ? (
-          <div className="fixed inset-x-4 bottom-24 z-40 mx-auto max-w-lg rounded-full bg-background/90 p-1.5 shadow-xl shadow-black/10 ring-1 ring-border backdrop-blur md:static md:mt-8 md:max-w-none md:bg-transparent md:p-0 md:shadow-none md:ring-0 md:backdrop-blur-none">
+          <div id="sticky-cart" className="fixed inset-x-4 bottom-24 z-40 mx-auto max-w-lg rounded-full bg-background/90 p-1.5 shadow-xl shadow-black/10 ring-1 ring-border backdrop-blur md:static md:mt-8 md:max-w-none md:bg-transparent md:p-0 md:shadow-none md:ring-0 md:backdrop-blur-none">
             <AddToCartPanel productId={product.id} priceNaira={product.priceNaira} />
           </div>
         ) : (

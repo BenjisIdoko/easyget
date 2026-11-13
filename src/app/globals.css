@@ -19,6 +19,7 @@
 
   --food: #d97706;
   --food-light: #fef3c7;
+  --food-dark: #92400e;
 
   --border: #e7e2f3;
   --danger: #dc2626;
@@ -41,6 +42,7 @@
 
   --color-food: var(--food);
   --color-food-light: var(--food-light);
+  --color-food-dark: var(--food-dark);
 
   --color-border: var(--border);
   --color-danger: var(--danger);
@@ -62,7 +64,7 @@ body {
   }
 
   .pill-btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-50;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:pointer-events-none disabled:opacity-50;
   }
 
   .input {

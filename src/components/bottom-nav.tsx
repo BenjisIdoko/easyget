@@ -19,7 +19,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Main"
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-sm items-center justify-around rounded-full bg-ink p-1.5 shadow-xl shadow-black/25 md:hidden"
+      className="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-sm items-center justify-around rounded-full bg-ink p-1.5 shadow-xl shadow-black/25 lg:hidden"
     >
       {items.map(({ href, label, icon: Icon }) => {
         const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -27,7 +27,7 @@ export function BottomNav() {
           <Link
             key={href}
             href={href}
-            aria-label={label}
+            aria-label={href === "/cart" && itemCount > 0 ? `Cart, ${itemCount} items` : label}
             aria-current={active ? "page" : undefined}
             className={`relative flex h-11 items-center gap-1.5 rounded-full px-4 text-xs font-semibold transition ${
               active ? "bg-white text-ink" : "text-white/80"

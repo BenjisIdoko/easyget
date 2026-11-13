@@ -10,7 +10,7 @@ import { ProductImage } from "@/components/product-image";
 
 const accentByCategory = {
   pharmacy: "bg-pharmacy-light text-pharmacy",
-  food: "bg-food-light text-food",
+  food: "bg-food-light text-food-dark",
 } as const;
 
 export function ProductCard({ product }: { product: Product }) {
@@ -20,7 +20,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-3xl bg-surface p-2 shadow-sm shadow-brand/5 ring-1 ring-border/70 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/10">
       <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-        <Link href={`/product/${product.slug}`} className="absolute inset-0" aria-label={product.name}>
+        <Link href={`/product/${product.slug}`} className="absolute inset-0" tabIndex={-1} aria-hidden>
           <ProductImage
             product={product}
             className={product.inStock ? "" : "opacity-50 grayscale"}
@@ -30,7 +30,7 @@ export function ProductCard({ product }: { product: Product }) {
           onClick={() => setSaved((v) => !v)}
           aria-label={saved ? "Remove from saved" : "Save"}
           aria-pressed={saved}
-          className="absolute right-2 top-2 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:scale-105"
+          className="absolute right-2 top-2 grid h-11 w-11 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:scale-105"
         >
           <Heart className={`h-4 w-4 ${saved ? "fill-brand text-brand" : ""}`} />
         </button>

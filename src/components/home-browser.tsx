@@ -72,7 +72,7 @@ export function HomeBrowser({
 
       {visible.length === 0 ? (
         <p className="mt-6 rounded-3xl bg-surface p-8 text-center text-sm text-muted ring-1 ring-border">
-          No matches for “{query}”. Try another word, or ask us on WhatsApp.
+          {query.trim() ? `No matches for “${query.trim()}”.` : "Nothing in this category yet."} Try another word, or ask us on WhatsApp.
         </p>
       ) : (
         <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
