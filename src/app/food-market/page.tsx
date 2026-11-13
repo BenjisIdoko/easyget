@@ -10,7 +10,8 @@ export default function FoodMarketPage() {
   const products = getProductsByCategory("food");
 
   return (
-    <section className="container-page py-12">
+    <section className="container-page py-6 md:py-12">
+      <div className="rounded-3xl bg-gradient-to-br from-food-light to-surface p-6 ring-1 ring-border/60 md:p-8">
       <span className="inline-flex items-center gap-1.5 rounded-full bg-food-light px-3 py-1 text-xs font-semibold text-food">
         Fresh & Fast Kitchen
       </span>
@@ -19,8 +20,9 @@ export default function FoodMarketPage() {
         Home-style meals and everyday groceries, made fresh and bundled into
         the same delivery as your pharmacy order.
       </p>
+      </div>
 
-      <div className="mt-8">
+      <div className="mt-6">
         <CategoryBrowser products={products} />
       </div>
     </section>

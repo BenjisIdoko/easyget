@@ -113,7 +113,7 @@ function StatusPanel({
       <p className="mt-2 max-w-md text-sm text-muted">{children}</p>
       <Link
         href="/"
-        className="mt-6 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white"
+        className="pill-btn mt-6"
       >
         Back to EasyGet
       </Link>

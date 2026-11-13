@@ -16,9 +16,9 @@ export function ConsultCard({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noreferrer" : undefined}
-      className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-5 transition hover:-translate-y-0.5 hover:border-brand hover:shadow-md hover:shadow-brand/5"
+      className="flex items-start gap-4 rounded-3xl bg-surface p-5 ring-1 ring-border/70 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/10"
     >
-      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-light text-brand">
+      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand-light text-brand">
         <Icon className="h-5 w-5" />
       </span>
       <div>

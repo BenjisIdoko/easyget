@@ -47,7 +47,7 @@ export default function CateringPage() {
   }
 
   return (
-    <section className="container-page grid gap-10 py-12 lg:grid-cols-3">
+    <section className="container-page grid gap-8 py-8 lg:grid-cols-3 lg:gap-10 lg:py-12">
       <form onSubmit={handleSubmit} className="space-y-5 lg:col-span-2">
         <div>
           <span className="inline-flex items-center rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand-dark">
@@ -62,7 +62,7 @@ export default function CateringPage() {
         </div>
 
         {error && (
-          <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-danger">{error}</p>
+          <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-danger">{error}</p>
         )}
 
         <div className="grid gap-4 sm:grid-cols-2">
@@ -130,13 +130,13 @@ export default function CateringPage() {
 
         <button
           type="submit"
-          className="w-full rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+          className="pill-btn h-14 w-full"
         >
           Get a quote on WhatsApp
         </button>
       </form>
 
-      <aside className="h-fit rounded-2xl border border-border bg-surface p-6">
+      <aside className="h-fit rounded-3xl bg-surface p-6 ring-1 ring-border/70">
         <h2 className="font-display text-lg font-semibold">How it works</h2>
         <ol className="mt-4 space-y-3 text-sm text-muted">
           <li>1. Tell us the event, headcount and what you want served.</li>
