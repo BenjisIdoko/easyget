@@ -12,6 +12,8 @@ export interface Product {
   requiresPrescription?: boolean;
   unit: string;
   imageEmoji: string;
+  /** Optional photo URL (testing: Unsplash). Emoji is the fallback. */
+  imageUrl?: string;
   tags: string[];
   inStock: boolean;
 }

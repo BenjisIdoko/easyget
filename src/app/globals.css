@@ -22,6 +22,8 @@
 
   --border: #e7e2f3;
   --danger: #dc2626;
+
+  --ink: #111111;
 }
 
 @theme inline {
@@ -42,13 +44,15 @@
 
   --color-border: var(--border);
   --color-danger: var(--danger);
+  --color-ink: var(--ink);
 
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(#f1ebfd, var(--background) 480px) no-repeat,
+    var(--background);
   color: var(--foreground);
 }
 
@@ -57,7 +61,11 @@ body {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
   }
 
+  .pill-btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-50;
+  }
+
   .input {
-    @apply w-full rounded-xl border border-border bg-surface px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+    @apply min-h-11 w-full rounded-2xl border border-border bg-surface px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
   }
 }
