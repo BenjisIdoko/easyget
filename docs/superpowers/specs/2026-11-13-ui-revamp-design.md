@@ -13,8 +13,8 @@ as trustworthy. This is a visual/UX redesign only.
   location bar + cart → greeting + search → promo banner → category pills
   (All / Pharmacy / Food) → product grid → floating bottom nav; product page with
   large image, quantity stepper and sticky "Add to Cart" bar.
-- Apply the *look* of reference B (light "Fresh Lime"): soft lime-to-white
-  background wash, lime accent, black pill buttons and nav, pastel photo backdrops.
+- Apply the *look* of reference B (light "Fresh"): soft tinted-to-white background
+  wash, black pill buttons and nav, pastel photo backdrops — in EasyGet brand colors.
 - Real food/pharmacy photography (free stock) instead of emoji.
 - Desktop: same layout widens into a grid; bottom nav becomes a top bar.
 - All existing pages restyled consistently: home, pharmacy, food-market, product,
@@ -46,13 +46,17 @@ as trustworthy. This is a visual/UX redesign only.
 3. Fresh rebuild — rejected: slow, risks checkout, nothing in the logic needs replacing.
 
 ## Decisions (owner)
-- Direction: A's flow + B's look. Approach 1. Link to free Unsplash photos by URL
+- Direction: A's flow + B's look, in EasyGet's existing brand colors (violet, teal,
+  amber) — not lime. Approach 1. Status: approved 2026-11-13. Link to free Unsplash photos by URL
   (not saved in repo) during testing; swap for owner's photos later.
 
 ## Builder's calls (owner may override)
-- Tokens: lime accent (~#a3e635 on near-black text), black (#111) pill buttons/nav,
-  light background wash; food uses lime; pharmacy keeps a small teal tint (chips,
-  badges, prescription label) so it reads clinical. Violet brand is retired.
+- Tokens: **owner decision — keep the existing brand colors**: violet `--brand`
+  (#6d28d9) as the primary accent (active tab, highlights, promo banner), teal
+  `--pharmacy` for pharmacy items, amber `--food` for food items. B's *look* is
+  applied with those colors: soft violet-tinted-to-white background wash, black
+  (#111) pill buttons/nav, pastel photo backdrops tinted from the brand palette
+  (violet/teal/amber lights). No lime.
 - Fonts: keep Sora (display) + Plus Jakarta Sans (body); load them properly via
   `next/font` (also clears the current lint warning).
 - `Product` gets optional `imageUrl`; `ProductCard`/product page use `next/image`
