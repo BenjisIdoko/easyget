@@ -1,110 +1,92 @@
 import Link from "next/link";
-import { ArrowRight, HeadphonesIcon, Stethoscope, HeartPulse, Clock3 } from "lucide-react";
-import { ProductCard } from "@/components/product-card";
+import {
+  ArrowRight,
+  HeadphonesIcon,
+  Stethoscope,
+  HeartPulse,
+  Pill,
+  UtensilsCrossed,
+  ShoppingBasket,
+  PartyPopper,
+} from "lucide-react";
+import { HomeBrowser } from "@/components/home-browser";
 import { ConsultCard } from "@/components/consult-card";
-import { getProductsByCategory } from "@/lib/products";
+import { products } from "@/lib/products";
 
 const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "2348000000000";
 
-export default function Home() {
-  const pharmacyPicks = getProductsByCategory("pharmacy").slice(0, 4);
-  const foodPicks = getProductsByCategory("food").slice(0, 4);
+// Placeholder promo copy — edit freely.
+const promo = {
+  title: "Free delivery on your first order",
+  body: "Meals and medicine at your door in under 45 minutes.",
+  cta: "Order now",
+  href: "/food-market",
+};
 
+const services = [
+  { href: "/pharmacy", title: "Pharmacy", note: "Verified healthcare", icon: Pill, tone: "bg-pharmacy-light text-pharmacy" },
+  { href: "/food-market", title: "Food Market", note: "Fresh & fast kitchen", icon: UtensilsCrossed, tone: "bg-food-light text-food-dark" },
+  { href: "/grocery-concierge", title: "Grocery Concierge", note: "Budget + list", icon: ShoppingBasket, tone: "bg-brand-light text-brand-dark" },
+  { href: "/catering", title: "Catering & Events", note: "Bulk quotes", icon: PartyPopper, tone: "bg-brand-light text-brand-dark" },
+] as const;
+
+export default function Home() {
   return (
     <>
-      <section className="container-page pb-16 pt-14 sm:pt-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-brand">
-            <Clock3 className="h-3.5 w-3.5" /> Delivering in under 45 minutes
-          </span>
-          <h1 className="mt-5 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-            Medicine and meals, to your door — fast.
-          </h1>
-          <p className="mt-4 text-base text-muted sm:text-lg">
-            EasyGet pairs a licensed pharmacy with a local food market, a
-            grocery concierge and event catering — one platform for
-            everything your household or gathering needs today.
-          </p>
-        </div>
+      <section className="container-page pt-6 sm:pt-10">
+        <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
+          Hungry or unwell? <span aria-hidden>👋</span>
+        </h1>
+        <p className="mt-1 text-sm text-muted sm:text-base">
+          Medicine and meals, to your door — fast.
+        </p>
 
-        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2">
-          <Link
-            href="/pharmacy"
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-pharmacy/10"
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-pharmacy-light px-3 py-1 text-xs font-semibold text-pharmacy">
-              Verified Healthcare
-            </span>
-            <h2 className="mt-4 font-display text-2xl font-semibold">Pharmacy</h2>
-            <p className="mt-2 text-sm text-muted">
-              Prescription medication, wellness supplements and first-aid
-              essentials, checked by a pharmacist before dispatch.
-            </p>
-            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-pharmacy">
-              Enter Pharmacy <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </span>
-          </Link>
-
-          <Link
-            href="/food-market"
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-food/10"
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-food-light px-3 py-1 text-xs font-semibold text-food">
-              Fresh & Fast Kitchen
-            </span>
-            <h2 className="mt-4 font-display text-2xl font-semibold">Food Market</h2>
-            <p className="mt-2 text-sm text-muted">
-              Home-style Nigerian meals and everyday groceries, made or
-              sourced fresh and bundled into the same delivery.
-            </p>
-            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-food">
-              Enter Food Market <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </span>
-          </Link>
-
-          <Link
-            href="/grocery-concierge"
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10"
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand-dark">
-              Budget + List
-            </span>
-            <h2 className="mt-4 font-display text-2xl font-semibold">Grocery Concierge</h2>
-            <p className="mt-2 text-sm text-muted">
-              Send a shopping list and a budget — we shop your supermarket
-              run and deliver it with the official till receipt.
-            </p>
-            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
-              Start a request <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </span>
-          </Link>
-
-          <Link
-            href="/catering"
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-8 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10"
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-xs font-semibold text-brand-dark">
-              Bulk & Events
-            </span>
-            <h2 className="mt-4 font-display text-2xl font-semibold">Catering & Events</h2>
-            <p className="mt-2 text-sm text-muted">
-              Barrels of soup, party jollof and drinks for gatherings — get
-              a custom quote on WhatsApp.
-            </p>
-            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
-              Get a quote <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </span>
-          </Link>
+        <div className="mt-5">
+          <HomeBrowser products={products}>
+            <div className="relative mt-5 overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-dark p-6 text-white">
+              <div className="max-w-[16rem] sm:max-w-md">
+                <p className="font-display text-2xl font-semibold leading-tight">{promo.title}</p>
+                <p className="mt-2 text-sm text-white/85">{promo.body}</p>
+                <Link href={promo.href} className="pill-btn mt-4 !bg-white !text-ink hover:!bg-brand-light">
+                  {promo.cta} <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <span className="absolute -bottom-2 -right-1 text-[6.5rem] leading-none opacity-95 sm:right-10 sm:text-[8rem]" aria-hidden>
+                🍲
+              </span>
+            </div>
+          </HomeBrowser>
         </div>
       </section>
 
-      <section id="consultations" className="container-page py-16">
-        <h2 className="font-display text-2xl font-semibold">Quick Consultations</h2>
-        <p className="mt-2 max-w-xl text-sm text-muted">
-          Not sure what you need yet? Our team — including a pharmacist on
-          24/7 standby — is one message away on WhatsApp.
+      <section className="container-page pt-12">
+        <h2 className="font-display text-xl font-semibold">Everything EasyGet</h2>
+        <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          {services.map(({ href, title, note, icon: Icon, tone }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex flex-col gap-3 rounded-3xl bg-surface p-4 ring-1 ring-border/70 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/10"
+            >
+              <span className={`grid h-12 w-12 place-items-center rounded-2xl ${tone}`}>
+                <Icon className="h-6 w-6" />
+              </span>
+              <span>
+                <span className="block font-display text-base font-semibold">{title}</span>
+                <span className="block text-xs text-muted">{note}</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="consultations" className="container-page pt-12">
+        <h2 className="font-display text-xl font-semibold">Quick consultations</h2>
+        <p className="mt-1 max-w-xl text-sm text-muted">
+          Not sure what you need yet? Our team — including a pharmacist on 24/7
+          standby — is one message away on WhatsApp.
         </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="mt-4 grid gap-3 sm:grid-cols-3 sm:gap-4">
           <ConsultCard
             icon={HeadphonesIcon}
             title="General Support"
@@ -123,34 +105,6 @@ export default function Home() {
             description="Personalized nutrition and meal curation."
             href={`https://wa.me/${whatsapp}`}
           />
-        </div>
-      </section>
-
-      <section className="container-page py-16">
-        <div className="flex items-end justify-between">
-          <h2 className="font-display text-2xl font-semibold">Pharmacy picks</h2>
-          <Link href="/pharmacy" className="text-sm font-medium text-brand hover:underline">
-            View all
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {pharmacyPicks.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-      </section>
-
-      <section className="container-page py-16">
-        <div className="flex items-end justify-between">
-          <h2 className="font-display text-2xl font-semibold">From the food market</h2>
-          <Link href="/food-market" className="text-sm font-medium text-brand hover:underline">
-            View all
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {foodPicks.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
         </div>
       </section>
     </>

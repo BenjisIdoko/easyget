@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { MapPin, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 
 const links = [
@@ -15,62 +15,52 @@ const links = [
 
 export function Navbar() {
   const { itemCount } = useCart();
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-surface/90 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 bg-surface/80 backdrop-blur-md lg:border-b lg:border-border/80">
+      <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-brand-dark">
-          <span className="grid h-8 w-8 place-items-center rounded-xl bg-brand text-white">
+          <span className="grid h-9 w-9 place-items-center rounded-2xl bg-brand text-sm text-white">
             EG
           </span>
           EasyGet
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/80 lg:flex">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} className="transition hover:text-brand">
-              {l.label}
-            </Link>
-          ))}
+        <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1.5 text-xs font-medium text-muted shadow-sm lg:hidden">
+          <MapPin className="h-3.5 w-3.5 text-brand" /> Lagos
+        </span>
+
+        <nav className="hidden items-center gap-1 text-sm font-medium lg:flex">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`rounded-full px-3.5 py-2 transition ${
+                  active ? "bg-brand-light text-brand-dark" : "text-foreground/80 hover:text-brand"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Link
-            href="/cart"
-            className="relative grid h-10 w-10 place-items-center rounded-full border border-border bg-surface transition hover:border-brand hover:text-brand"
-            aria-label="View cart"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {itemCount > 0 && (
-              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white">
-                {itemCount}
-              </span>
-            )}
-          </Link>
-          <button
-            className="grid h-10 w-10 place-items-center rounded-full border border-border lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+        <Link
+          href="/cart"
+          className="relative grid h-11 w-11 place-items-center rounded-full bg-ink text-white transition hover:bg-brand-dark"
+          aria-label={itemCount > 0 ? `View cart, ${itemCount} items` : "View cart"}
+        >
+          <ShoppingCart className="h-5 w-5" />
+          {itemCount > 0 && (
+            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white ring-2 ring-background">
+              {itemCount > 9 ? "9+" : itemCount}
+            </span>
+          )}
+        </Link>
       </div>
-
-      {open && (
-        <nav className="border-t border-border bg-surface px-5 py-4 lg:hidden">
-          <ul className="flex flex-col gap-4 text-sm font-medium">
-            {links.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} onClick={() => setOpen(false)}>
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
     </header>
   );
 }
