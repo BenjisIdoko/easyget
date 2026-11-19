@@ -1,0 +1,247 @@
+{
+  "vendor": "Night Orchard Buka Spot Ushafa",
+  "currency": "NGN",
+  "total_items": 42,
+  "categories": [
+    {
+      "category": "Breakfast Menu",
+      "item_count": 9,
+      "items": [
+        {
+          "name": "Tea",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Special Tea",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pap",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Porridge Beans",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Yam Fries",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Potato Fries",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg Sauce",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coffee Americano",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Bread",
+          "price": 700,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Night Buka Dishes",
+      "item_count": 7,
+      "items": [
+        {
+          "name": "Coconut Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Jellof Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Asun Rice",
+          "price": 5500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Spaghetti",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Moi Moi",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Proteins",
+      "item_count": 6,
+      "items": [
+        {
+          "name": "Chicken",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Turkey",
+          "price": 5500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg",
+          "price": 500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soups",
+      "item_count": 9,
+      "items": [
+        {
+          "name": "Egusi",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Afang Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Bitter Leaf Soup",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Soup",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Oha Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ofe Owerri",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ogbono Soup",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pepper Soup",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Drink",
+      "item_count": 11,
+      "items": [
+        {
+          "name": "Soft Drinks",
+          "price": 600,
+          "currency": "NGN"
+        },
+        {
+          "name": "Exotic",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Hollandia",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Heineken",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Desperados",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Double Black",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fayrouz",
+          "price": 800,
+          "currency": "NGN"
+        },
+        {
+          "name": "Malt",
+          "price": 700,
+          "currency": "NGN"
+        },
+        {
+          "name": "M/Stout",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Natural Drinks",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Arabian Tea",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}

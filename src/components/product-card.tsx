@@ -7,6 +7,7 @@ import type { Product } from "@/lib/types";
 import { formatNaira } from "@/lib/format";
 import { useCart } from "@/context/cart-context";
 import { ProductImage } from "@/components/product-image";
+import { getVendor } from "@/lib/menus";
 
 const accentByCategory = {
   pharmacy: "bg-pharmacy-light text-pharmacy",
@@ -16,6 +17,7 @@ const accentByCategory = {
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [saved, setSaved] = useState(false);
+  const vendor = getVendor(product.vendorId);
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-3xl bg-surface p-2 shadow-sm shadow-brand/5 ring-1 ring-border/70 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/10">
@@ -54,6 +56,10 @@ export function ProductCard({ product }: { product: Product }) {
         >
           {product.name}
         </Link>
+
+        {vendor && (
+          <p className="truncate text-[11px] text-muted">from {vendor.name}</p>
+        )}
 
         {product.requiresPrescription && (
           <span className="inline-flex w-fit items-center gap-1 text-[11px] font-semibold text-amber-800">

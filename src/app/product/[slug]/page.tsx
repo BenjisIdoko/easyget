@@ -5,6 +5,7 @@ import { getProductBySlug, products } from "@/lib/products";
 import { formatNaira } from "@/lib/format";
 import { AddToCartPanel } from "@/components/add-to-cart-panel";
 import { ProductImage } from "@/components/product-image";
+import { getVendor } from "@/lib/menus";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -15,6 +16,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
+  const vendor = getVendor(product.vendorId);
   const backHref = product.category === "pharmacy" ? "/pharmacy" : "/food-market";
 
   return (
@@ -42,6 +44,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
         </span>
 
         <h1 className="mt-3 font-display text-3xl font-semibold leading-tight">{product.name}</h1>
+        {vendor && <p className="mt-1 text-sm text-muted">from {vendor.name}</p>}
 
         <div className="mt-3 flex items-baseline gap-3">
           <p className="font-display text-3xl font-semibold">{formatNaira(product.priceNaira)}</p>

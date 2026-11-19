@@ -1,0 +1,404 @@
+{
+  "vendor": "Kennek Bites and Restaurant",
+  "currency": "NGN",
+  "total_items": 71,
+  "categories": [
+    {
+      "category": "Rice, Pasta & Beans",
+      "item_count": 10,
+      "items": [
+        {
+          "name": "Jollof Rice",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Mackerel Rice",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Porridge Beans",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Native Rice",
+          "price": 3700,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Rice",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Native Pasta",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Basmati White Rice",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Local White Rice",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chinese Rice",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coconut Rice",
+          "price": 3500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Yam, Sides & Sauces",
+      "item_count": 9,
+      "items": [
+        {
+          "name": "Porridge Yam",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Yam",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Yam and Egg Sauce",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Plantain",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Salad",
+          "price": 1200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Moi Moi",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Extra Stew",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg Sauce",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pepper Sauce",
+          "price": 2000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Proteins & Grills",
+      "item_count": 17,
+      "items": [
+        {
+          "name": "Asun",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish (Middle)",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish (Tail)",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Kpomo",
+          "price": 1200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Wings",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Wings (Big)",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Lap",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Lap (Big)",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Turkey",
+          "price": 6500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Turkey (Small)",
+          "price": 5500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Assorted",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Cow Leg",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Stick Beef",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Spicy Pepper Beef",
+          "price": 3500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Pepper Soups",
+      "item_count": 6,
+      "items": [
+        {
+          "name": "Chicken Pepper Soup",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat Pepper Soup",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Assorted Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Catfish Head Pepper Soup",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Catfish Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Fast Food, Shawarma & Pizza",
+      "item_count": 12,
+      "items": [
+        {
+          "name": "Shawarma (Single Sausage)",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (Without Sausage)",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (Double Sausage)",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Jumbo Shawarma",
+          "price": 6500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (With Extra)",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Burger",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pizza (Big)",
+          "price": 16000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pizza (Medium)",
+          "price": 13000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken and Chips",
+          "price": 6500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chips and Egg",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Indomie and Egg",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chips",
+          "price": 2500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Bakery, Pastries & Snacks",
+      "item_count": 12,
+      "items": [
+        {
+          "name": "Bread (Jumbo)",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Bread (Small)",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Chicken Pie",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Meat Pie",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Sausage Roll",
+          "price": 1200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish Roll",
+          "price": 1200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Buns",
+          "price": 200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg Roll",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chin Chin",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Peanut (Big)",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Cupcake",
+          "price": 1200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Popcorn",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Drinks & Parfait",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Tiger Nut",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coconut Yoghurt",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Orange Juice",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Kennek Zobo",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Parfait",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "vendor": "Amala Empire Restaurant",
+  "currency": "NGN",
+  "total_items": 27,
+  "categories": [
+    {
+      "category": "Main Dishes",
+      "item_count": 8,
+      "items": [
+        {
+          "name": "Jollof Rice",
+          "price": 2200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Rice",
+          "price": 2200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Basmati Rice",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Golden Yam",
+          "price": 800,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beans",
+          "price": 2200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Spaghetti",
+          "price": 2200,
+          "currency": "NGN"
+        },
+        {
+          "name": "Porridge Yam",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Rice",
+          "price": 2500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Proteins",
+      "item_count": 7,
+      "items": [
+        {
+          "name": "Turkey",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Assorted Meat",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg",
+          "price": 500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Swallows (Per Wrap)",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Fufu",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Semo",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Amala",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Garri",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Pounded Yam",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soups",
+      "item_count": 6,
+      "items": [
+        {
+          "name": "Okro Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egusi Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Afang Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Soup",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Bitter Leaf Soup",
+          "price": 1500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Packaging & Extras",
+      "item_count": 1,
+      "items": [
+        {
+          "name": "Takeaway Plate",
+          "price": 300,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}

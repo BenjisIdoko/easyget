@@ -76,7 +76,7 @@ export function HomeBrowser({
         </p>
       ) : (
         <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
-          {visible.map((p) => (
+          {(query.trim() ? visible : visible.slice(0, 24)).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

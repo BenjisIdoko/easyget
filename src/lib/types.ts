@@ -5,6 +5,8 @@ export interface Product {
   slug: string;
   name: string;
   category: ProductCategory;
+  /** Food only: the restaurant this item comes from. Pharmacy has no vendor. */
+  vendorId?: string;
   subcategory: string;
   priceNaira: number;
   compareAtNaira?: number;
@@ -16,6 +18,11 @@ export interface Product {
   imageUrl?: string;
   tags: string[];
   inStock: boolean;
+}
+
+export interface Vendor {
+  id: string;
+  name: string;
 }
 
 export interface CartLine {
