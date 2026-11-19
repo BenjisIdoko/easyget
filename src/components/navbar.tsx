@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MapPin, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { CartBadge } from "@/components/cart-badge";
 
 const links = [
   { href: "/pharmacy", label: "Pharmacy" },
@@ -38,7 +39,7 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`rounded-full px-3.5 py-2 transition ${
+                className={`rounded-full px-3.5 py-2 press ${
                   active ? "bg-brand-light text-brand-dark" : "text-foreground/80 hover:text-brand"
                 }`}
               >
@@ -50,15 +51,11 @@ export function Navbar() {
 
         <Link
           href="/cart"
-          className="relative grid h-11 w-11 place-items-center rounded-full bg-ink text-white transition hover:bg-brand-dark"
+          className="relative grid h-11 w-11 place-items-center rounded-full bg-ink text-white press hover:bg-brand-dark"
           aria-label={itemCount > 0 ? `View cart, ${itemCount} items` : "View cart"}
         >
           <ShoppingCart className="h-5 w-5" />
-          {itemCount > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white ring-2 ring-background">
-              {itemCount > 9 ? "9+" : itemCount}
-            </span>
-          )}
+          <CartBadge className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white ring-2 ring-background" />
         </Link>
       </div>
     </header>

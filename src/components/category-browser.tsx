@@ -32,7 +32,7 @@ export function CategoryBrowser({ products }: { products: Product[] }) {
             key={s}
             onClick={() => setActive(s)}
             aria-pressed={active === s}
-            className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold transition ${
+            className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold press ${
               active === s
                 ? "bg-ink text-white"
                 : "bg-surface text-muted ring-1 ring-border hover:text-brand"
@@ -50,7 +50,7 @@ export function CategoryBrowser({ products }: { products: Product[] }) {
               key={v.id}
               onClick={() => setVendor(v.id)}
               aria-pressed={vendor === v.id}
-              className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold transition ${
+              className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold press ${
                 vendor === v.id
                   ? "bg-ink text-white"
                   : "bg-surface text-muted ring-1 ring-border hover:text-brand"
@@ -68,8 +68,8 @@ export function CategoryBrowser({ products }: { products: Product[] }) {
         </p>
       ) : (
         <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
-          {visible.map((p) => (
-            <ProductCard key={p.id} product={p} />
+          {visible.map((p, i) => (
+            <ProductCard key={`${active}-${vendor}-${p.id}`} product={p} index={i} />
           ))}
         </div>
       )}

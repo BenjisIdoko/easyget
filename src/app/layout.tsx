@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
+import { ToastProvider } from "@/context/toast-context";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BottomNav } from "@/components/bottom-nav";
@@ -32,10 +33,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col font-sans">
         <CartProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <BottomNav />
+          <ToastProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <BottomNav />
+          </ToastProvider>
         </CartProvider>
       </body>
     </html>

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Loader2 } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { products } from "@/lib/products";
 import { formatNaira } from "@/lib/format";
@@ -10,6 +11,11 @@ export default function CheckoutPage() {
   const { lines, subtotalNaira } = useCart();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (error) errorRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [error]);
   const [form, setForm] = useState({
     fullName: "",
     phone: "",
@@ -66,13 +72,16 @@ export default function CheckoutPage() {
         <h1 className="font-display text-2xl font-semibold">Checkout</h1>
 
         {error && (
-          <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-danger">{error}</p>
+          <p ref={errorRef} role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-danger">
+            {error}
+          </p>
         )}
 
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Full name">
             <input
               required
+              autoComplete="name"
               value={form.fullName}
               onChange={(e) => setForm({ ...form, fullName: e.target.value })}
               className="input"
@@ -82,6 +91,8 @@ export default function CheckoutPage() {
             <input
               required
               type="tel"
+              inputMode="tel"
+              autoComplete="tel"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               className="input"
@@ -93,6 +104,7 @@ export default function CheckoutPage() {
           <input
             required
             type="email"
+            autoComplete="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className="input"
@@ -103,6 +115,7 @@ export default function CheckoutPage() {
           <textarea
             required
             rows={3}
+            autoComplete="street-address"
             value={form.address}
             onChange={(e) => setForm({ ...form, address: e.target.value })}
             className="input"
@@ -123,7 +136,13 @@ export default function CheckoutPage() {
           disabled={submitting}
           className="pill-btn h-14 w-full"
         >
-          {submitting ? "Redirecting to Paystack…" : `Pay ${formatNaira(subtotalNaira)} with Paystack`}
+          {submitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> Redirecting to Paystack…
+            </>
+          ) : (
+            `Pay ${formatNaira(subtotalNaira)} with Paystack`
+          )}
         </button>
       </form>
 

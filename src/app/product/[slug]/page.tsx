@@ -64,7 +64,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
 
         {product.inStock ? (
           <div id="sticky-cart" className="fixed inset-x-4 bottom-24 z-40 mx-auto max-w-lg rounded-full bg-background/90 p-1.5 shadow-xl shadow-black/10 ring-1 ring-border backdrop-blur md:static md:mt-8 md:max-w-none md:bg-transparent md:p-0 md:shadow-none md:ring-0 md:backdrop-blur-none">
-            <AddToCartPanel productId={product.id} priceNaira={product.priceNaira} />
+            <AddToCartPanel productId={product.id} name={product.name} priceNaira={product.priceNaira} />
           </div>
         ) : (
           <p className="mt-6 rounded-2xl bg-surface px-4 py-3 text-sm font-semibold text-muted ring-1 ring-border">

@@ -58,13 +58,70 @@ body {
   color: var(--foreground);
 }
 
+:where(a, button):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Press feedback: scale(0.96), interruptible, off when disabled. */
+@utility press {
+  @apply transition-[transform,background-color,color,box-shadow] duration-150 ease-out active:not-disabled:scale-[0.96];
+}
+
+/* Staggered enter: set --i on the element (capped by the caller). */
+@utility rise-in {
+  animation: rise-in 400ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@utility pop-in {
+  animation: pop-in 200ms cubic-bezier(0.2, 0, 0, 1) backwards;
+}
+
+@utility toast-out {
+  animation: toast-out 150ms ease-in forwards;
+}
+
 @layer utilities {
   .container-page {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
   }
 
   .pill-btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white press hover:bg-brand-dark disabled:pointer-events-none disabled:opacity-50;
   }
 
   .input {
