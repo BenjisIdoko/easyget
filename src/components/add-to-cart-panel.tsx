@@ -6,7 +6,7 @@ import { useCart } from "@/context/cart-context";
 import { useToast } from "@/context/toast-context";
 import { formatNaira } from "@/lib/format";
 import { IconSwap } from "@/components/icon-swap";
-import { QuantityStepper } from "@/components/quantity-stepper";
+import { QuantityStepper } from "@/components/ui/quantity-stepper";
 
 export function AddToCartPanel({
   productId,
@@ -24,7 +24,7 @@ export function AddToCartPanel({
 
   return (
     <div className="flex items-center gap-3">
-      <QuantityStepper quantity={quantity} onChange={(n) => setQuantity(Math.max(1, n))} />
+      <QuantityStepper value={quantity} onValueChange={setQuantity} min={1} />
       <button
         onClick={() => {
           addItem(productId, quantity);

@@ -6,7 +6,7 @@ import { useCart } from "@/context/cart-context";
 import { useToast } from "@/context/toast-context";
 import { products } from "@/lib/products";
 import { formatNaira } from "@/lib/format";
-import { QuantityStepper } from "@/components/quantity-stepper";
+import { QuantityStepper } from "@/components/ui/quantity-stepper";
 import { ProductImage } from "@/components/product-image";
 
 export default function CartPage() {
@@ -75,12 +75,9 @@ export default function CartPage() {
               </div>
               <div className="flex items-center gap-2">
                 <QuantityStepper
-                  quantity={line.quantity}
-                  onChange={(n) =>
-                    n <= 0
-                      ? remove(line.productId, product!.name, line.quantity)
-                      : setQuantity(line.productId, n)
-                  }
+                  value={line.quantity}
+                  onValueChange={(n) => setQuantity(line.productId, n)}
+                  min={1}
                 />
                 <button
                   onClick={() => remove(line.productId, product!.name, line.quantity)}
