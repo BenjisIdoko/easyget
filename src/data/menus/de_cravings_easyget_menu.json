@@ -1,0 +1,249 @@
+{
+  "vendor": "De Cravings",
+  "tagline": "Every taste is unique & sumptuous",
+  "currency": "NGN",
+  "total_items": 41,
+  "categories": [
+    {
+      "category": "Food Menu",
+      "item_count": 10,
+      "items": [
+        {
+          "name": "StirFried Rice",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Jollof Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chinese Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coconut Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ofada Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Rice & Stew",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Jollof Pasta",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Moi-Moi",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Salad",
+          "price": 1500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Proteins",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Goat Meat",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Chicken",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Turkey",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Fish",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soups",
+      "item_count": 8,
+      "items": [
+        {
+          "name": "Affang Soup",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egusi Soup",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Oha Soup",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Okra Soup",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fisherman Soup",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Soup",
+          "price": 4000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Swallows",
+      "item_count": 3,
+      "items": [
+        {
+          "name": "Garri",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Semolina",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Poundo",
+          "price": 1200,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Shawarma",
+      "item_count": 4,
+      "items": [
+        {
+          "name": "Chicken Shawarma & One Sausage",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef Shawarma & One Sausage",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Mixed Grill Shawarma",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma Special Double Sausage (Chicken and Two Sausages / Beef and Two Sausages)",
+          "price": 3500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soft Drinks",
+      "item_count": 11,
+      "items": [
+        {
+          "name": "Can Schweppes",
+          "price": 700,
+          "currency": "NGN"
+        },
+        {
+          "name": "Big Coca-Cola",
+          "price": 700,
+          "currency": "NGN"
+        },
+        {
+          "name": "Can Coca-Cola",
+          "price": 1100,
+          "currency": "NGN"
+        },
+        {
+          "name": "Small Coca-Cola",
+          "price": 400,
+          "currency": "NGN"
+        },
+        {
+          "name": "Amstel Malta",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chivita",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chivita Active",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chi-Exotic",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Can Fanta",
+          "price": 700,
+          "currency": "NGN"
+        },
+        {
+          "name": "Small Fanta",
+          "price": 400,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fayrouz",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}

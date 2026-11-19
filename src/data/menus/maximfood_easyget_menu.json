@@ -1,0 +1,324 @@
+{
+  "vendor": "Maximfood",
+  "address": "Shop 2, Bricks Plaza, Baba Shugaba Street, Ushafa, Abuja",
+  "contact_phones": [
+    "08051797148",
+    "08131107155"
+  ],
+  "currency": "NGN",
+  "total_items": 54,
+  "categories": [
+    {
+      "category": "Chops",
+      "item_count": 9,
+      "items": [
+        {
+          "name": "French Fries",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Plantain",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Yam Chips",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chilli Goat",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chilli Beef",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Sweet Potato",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (Without Sausage)",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (One Sausage)",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (Two Sausages)",
+          "price": 4000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Salad",
+      "item_count": 3,
+      "items": [
+        {
+          "name": "Tuna Salad",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Salad",
+          "price": 7000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Salad",
+          "price": 5000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Rice",
+      "item_count": 7,
+      "items": [
+        {
+          "name": "Fried Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Jollof Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ofada Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coconut Rice",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Asun Rice",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Spaghetti",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Protein",
+      "item_count": 9,
+      "items": [
+        {
+          "name": "Egg",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ice Fish",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Turkey",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Catfish",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Snail",
+          "price": 8000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Platter (Maxim)",
+          "price": 15000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soup",
+      "item_count": 11,
+      "items": [
+        {
+          "name": "Okro Soup",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egusi Soup",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Afang Soup",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Soup",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Bitter Leaf Soup",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ogbono Soup",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Soup",
+          "price": 10000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fisherman Soup",
+          "price": 15000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Semo",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Garri",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Poundo",
+          "price": 1500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Pepper Soup",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Goat Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Catfish Pepper Soup",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Pepper Soup",
+          "price": 6000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Cowmeat Pepper Soup",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Intestine Pepper Soup",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Frosty Frutty",
+      "item_count": 10,
+      "items": [
+        {
+          "name": "Smoothie",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Milkshake",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chapman",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shot",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Creamy Amber (Tigernut)",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Hibiscus Crush (Zobo)",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Tangerine Blast (Tangerine + Pineapple)",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Crispy Ginger (Ginger Juice)",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Crimson Crush (Watermelon + Beetroot)",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Cranberry Twist (Cranberry + Blueberry + Chia Seed)",
+          "price": 2500,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}
