@@ -59,7 +59,7 @@ export function HomeBrowser({
             key={p.value}
             onClick={() => setFilter(p.value)}
             aria-pressed={filter === p.value}
-            className={`min-h-11 shrink-0 rounded-full px-5 text-sm font-semibold transition ${
+            className={`min-h-11 shrink-0 rounded-full px-5 text-sm font-semibold press ${
               filter === p.value
                 ? "bg-ink text-white"
                 : "bg-surface text-muted ring-1 ring-border hover:text-brand"
@@ -76,8 +76,8 @@ export function HomeBrowser({
         </p>
       ) : (
         <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
-          {(query.trim() ? visible : visible.slice(0, 24)).map((p) => (
-            <ProductCard key={p.id} product={p} />
+          {(query.trim() ? visible : visible.slice(0, 24)).map((p, i) => (
+            <ProductCard key={`${filter}-${p.id}`} product={p} index={i} />
           ))}
         </div>
       )}

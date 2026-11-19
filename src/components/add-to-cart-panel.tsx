@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { formatNaira } from "@/lib/format";
+import { IconSwap } from "@/components/icon-swap";
 import { QuantityStepper } from "@/components/quantity-stepper";
 
 export function AddToCartPanel({
@@ -26,7 +27,7 @@ export function AddToCartPanel({
           setAdded(true);
           setTimeout(() => setAdded(false), 1500);
         }}
-        className="flex h-14 flex-1 items-center justify-between rounded-full bg-ink pl-6 pr-2 text-sm font-semibold text-white transition hover:bg-brand-dark"
+        className="flex h-14 flex-1 items-center justify-between rounded-full bg-ink pl-6 pr-2 text-sm font-semibold text-white press hover:bg-brand-dark"
       >
         <span className="whitespace-nowrap">
           {added ? (
@@ -39,7 +40,7 @@ export function AddToCartPanel({
           )}
         </span>
         <span className="grid h-10 w-10 place-items-center rounded-full bg-brand">
-          {added ? <Check className="h-5 w-5" /> : <ArrowRight className="h-5 w-5" />}
+          <IconSwap active={added} off={<ArrowRight className="h-5 w-5" />} on={<Check className="h-5 w-5" />} />
         </span>
       </button>
     </div>
