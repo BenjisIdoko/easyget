@@ -3,13 +3,20 @@
 import Link from "next/link";
 import { ShoppingBag, Trash2 } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { useToast } from "@/context/toast-context";
 import { products } from "@/lib/products";
 import { formatNaira } from "@/lib/format";
 import { QuantityStepper } from "@/components/quantity-stepper";
 import { ProductImage } from "@/components/product-image";
 
 export default function CartPage() {
-  const { lines, setQuantity, removeItem, subtotalNaira } = useCart();
+  const { lines, setQuantity, removeItem, addItem, subtotalNaira } = useCart();
+  const { show } = useToast();
+
+  const remove = (productId: string, name: string, quantity: number) => {
+    removeItem(productId);
+    show(`${name} removed`, { label: "Undo", onClick: () => addItem(productId, quantity) });
+  };
 
   const items = lines
     .map((line) => ({
@@ -34,7 +41,7 @@ export default function CartPage() {
           </Link>
           <Link
             href="/food-market"
-            className="inline-flex min-h-11 items-center rounded-full bg-surface px-6 text-sm font-semibold ring-1 ring-border"
+            className="press inline-flex min-h-11 items-center rounded-full bg-surface px-6 text-sm font-semibold ring-1 ring-border"
           >
             Food Market
           </Link>
@@ -69,11 +76,15 @@ export default function CartPage() {
               <div className="flex items-center gap-2">
                 <QuantityStepper
                   quantity={line.quantity}
-                  onChange={(n) => setQuantity(line.productId, n)}
+                  onChange={(n) =>
+                    n <= 0
+                      ? remove(line.productId, product!.name, line.quantity)
+                      : setQuantity(line.productId, n)
+                  }
                 />
                 <button
-                  onClick={() => removeItem(line.productId)}
-                  className="grid h-11 w-11 place-items-center rounded-full text-muted transition hover:bg-red-50 hover:text-danger"
+                  onClick={() => remove(line.productId, product!.name, line.quantity)}
+                  className="press grid h-11 w-11 place-items-center rounded-full text-muted hover:bg-red-50 hover:text-danger"
                   aria-label={`Remove ${product!.name}`}
                 >
                   <Trash2 className="h-4 w-4" />

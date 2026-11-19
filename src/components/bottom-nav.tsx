@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Pill, ShoppingCart, UtensilsCrossed } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { CartBadge } from "@/components/cart-badge";
 
 const items = [
   { href: "/", label: "Home", icon: Home },
@@ -29,16 +30,14 @@ export function BottomNav() {
             href={href}
             aria-label={href === "/cart" && itemCount > 0 ? `Cart, ${itemCount} items` : label}
             aria-current={active ? "page" : undefined}
-            className={`relative flex h-11 items-center gap-1.5 rounded-full px-4 text-xs font-semibold transition ${
+            className={`relative flex h-11 items-center gap-1.5 rounded-full px-4 text-xs font-semibold press ${
               active ? "bg-white text-ink" : "text-white/80"
             }`}
           >
             <Icon className="h-5 w-5" />
             {active && <span>{label}</span>}
-            {href === "/cart" && itemCount > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-bold text-white">
-                {itemCount > 9 ? "9+" : itemCount}
-              </span>
+            {href === "/cart" && (
+              <CartBadge className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-bold text-white" />
             )}
           </Link>
         );

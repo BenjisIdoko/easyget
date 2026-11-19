@@ -71,10 +71,25 @@ body {
   }
 }
 
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    animation-iteration-count: 1 !important;
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
@@ -90,6 +105,14 @@ body {
 @utility rise-in {
   animation: rise-in 400ms cubic-bezier(0.2, 0, 0, 1) backwards;
   animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@utility pop-in {
+  animation: pop-in 200ms cubic-bezier(0.2, 0, 0, 1) backwards;
+}
+
+@utility toast-out {
+  animation: toast-out 150ms ease-in forwards;
 }
 
 @layer utilities {

@@ -3,18 +3,22 @@
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { useCart } from "@/context/cart-context";
+import { useToast } from "@/context/toast-context";
 import { formatNaira } from "@/lib/format";
 import { IconSwap } from "@/components/icon-swap";
 import { QuantityStepper } from "@/components/quantity-stepper";
 
 export function AddToCartPanel({
   productId,
+  name,
   priceNaira,
 }: {
   productId: string;
+  name: string;
   priceNaira: number;
 }) {
   const { addItem } = useCart();
+  const { show } = useToast();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -24,6 +28,7 @@ export function AddToCartPanel({
       <button
         onClick={() => {
           addItem(productId, quantity);
+          show(`${quantity > 1 ? `${quantity} × ` : ""}${name} added`, { label: "View cart", href: "/cart" });
           setAdded(true);
           setTimeout(() => setAdded(false), 1500);
         }}
