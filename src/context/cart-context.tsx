@@ -36,8 +36,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) {
+        // Drop lines for products that no longer exist (the catalog changes),
+        // otherwise they inflate the cart count while being invisible in the cart.
+        const saved = JSON.parse(raw) as CartLine[];
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        setLines(JSON.parse(raw));
+        setLines(
+          saved.filter(
+            (l) =>
+              products.some((p) => p.id === l.productId) &&
+              Number.isInteger(l.quantity) &&
+              l.quantity > 0
+          )
+        );
       }
     } catch {
       // ignore malformed/local-storage-unavailable state
