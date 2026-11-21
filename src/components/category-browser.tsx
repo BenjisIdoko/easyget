@@ -3,9 +3,10 @@
 import { useMemo, useState } from "react";
 import type { Product } from "@/lib/types";
 import { ProductCard } from "@/components/product-card";
-import { vendors } from "@/lib/menus";
+import { useCatalog } from "@/context/catalog-context";
 
 export function CategoryBrowser({ products }: { products: Product[] }) {
+  const { vendors } = useCatalog();
   const subcategories = useMemo(
     () => ["All", ...Array.from(new Set(products.map((p) => p.subcategory)))],
     [products]
@@ -15,7 +16,7 @@ export function CategoryBrowser({ products }: { products: Product[] }) {
 
   const vendorChoices = useMemo(
     () => vendors.filter((v) => products.some((p) => p.vendorId === v.id)),
-    [products]
+    [products, vendors]
   );
 
   const visible = products.filter(

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { products } from "@/lib/products";
-import { getVendor } from "@/lib/menus";
+import { fetchCatalog } from "@/lib/catalog";
 import type { CartLine } from "@/lib/types";
 import type { OrderGroup, OrderSummary } from "@/lib/orders";
 
@@ -31,6 +30,9 @@ export async function POST(request: Request) {
     );
   }
 
+  // Fresh read (not the page cache): prices decide money.
+  const { products, vendors } = await fetchCatalog();
+
   const groups = new Map<string, OrderGroup>();
   for (const line of body.lines) {
     const product = products.find((p) => p.id === line.productId);
@@ -41,7 +43,7 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    const label = getVendor(product.vendorId)?.name ?? "Pharmacy";
+    const label = vendors.find((v) => v.id === product.vendorId)?.name ?? "Pharmacy";
     const group = groups.get(label) ?? { label, items: [], subtotalNaira: 0 };
     const subtotalNaira = product.priceNaira * quantity;
     group.items.push({ name: product.name, quantity, subtotalNaira });

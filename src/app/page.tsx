@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { HomeBrowser } from "@/components/home-browser";
 import { ConsultCard } from "@/components/consult-card";
-import { products } from "@/lib/products";
+import { getCatalog } from "@/lib/catalog";
 
 const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "2348000000000";
 
@@ -30,7 +30,9 @@ const services = [
   { href: "/catering", title: "Catering & Events", note: "Bulk quotes", icon: PartyPopper, tone: "bg-brand-light text-brand-dark" },
 ] as const;
 
-export default function Home() {
+export default async function Home() {
+  const { products } = await getCatalog();
+
   return (
     <>
       <section className="container-page pt-6 sm:pt-10">

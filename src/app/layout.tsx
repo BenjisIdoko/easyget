@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
+import { CatalogProvider } from "@/context/catalog-context";
+import { getCatalog } from "@/lib/catalog";
 import { ToastProvider } from "@/context/toast-context";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
     "Verified medication and fresh meals delivered fast, with a pharmacist on standby around the clock.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const { products, vendors } = await getCatalog();
+
   return (
     <html lang="en" className="h-full antialiased">
       <head>
@@ -32,14 +36,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="flex min-h-full flex-col font-sans">
-        <CartProvider>
-          <ToastProvider>
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <BottomNav />
-          </ToastProvider>
-        </CartProvider>
+        <CatalogProvider products={products} vendors={vendors}>
+          <CartProvider>
+            <ToastProvider>
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <BottomNav />
+            </ToastProvider>
+          </CartProvider>
+        </CatalogProvider>
       </body>
     </html>
   );
