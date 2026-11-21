@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ShoppingBag, Trash2 } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { useToast } from "@/context/toast-context";
-import { products } from "@/lib/products";
+import { useCatalog } from "@/context/catalog-context";
 import { formatNaira } from "@/lib/format";
 import { QuantityStepper } from "@/components/ui/quantity-stepper";
 import { ProductImage } from "@/components/product-image";
@@ -12,6 +12,7 @@ import { ProductImage } from "@/components/product-image";
 export default function CartPage() {
   const { lines, setQuantity, removeItem, addItem, subtotalNaira } = useCart();
   const { show } = useToast();
+  const { getProduct } = useCatalog();
 
   const remove = (productId: string, name: string, quantity: number) => {
     removeItem(productId);
@@ -21,7 +22,7 @@ export default function CartPage() {
   const items = lines
     .map((line) => ({
       line,
-      product: products.find((p) => p.id === line.productId),
+      product: getProduct(line.productId),
     }))
     .filter((x) => x.product);
 

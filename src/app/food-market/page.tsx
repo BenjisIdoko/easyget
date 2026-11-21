@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { CategoryBrowser } from "@/components/category-browser";
-import { getProductsByCategory } from "@/lib/products";
+import { getCatalog } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Food Market — EasyGet",
 };
 
-export default function FoodMarketPage() {
-  const products = getProductsByCategory("food");
+export default async function FoodMarketPage() {
+  const { products: all } = await getCatalog();
+  const products = all.filter((p) => p.category === "food");
 
   return (
     <section className="container-page py-6 md:py-12">

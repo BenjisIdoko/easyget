@@ -1,22 +1,23 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
-import { getProductBySlug, products } from "@/lib/products";
+import { getCatalog } from "@/lib/catalog";
 import { formatNaira } from "@/lib/format";
 import { AddToCartPanel } from "@/components/add-to-cart-panel";
 import { ProductImage } from "@/components/product-image";
-import { getVendor } from "@/lib/menus";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { products } = await getCatalog();
   return products.map((p) => ({ slug: p.slug }));
 }
 
 export default async function ProductPage(props: PageProps<"/product/[slug]">) {
   const { slug } = await props.params;
-  const product = getProductBySlug(slug);
+  const { products, vendors } = await getCatalog();
+  const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  const vendor = getVendor(product.vendorId);
+  const vendor = vendors.find((v) => v.id === product.vendorId);
   const backHref = product.category === "pharmacy" ? "/pharmacy" : "/food-market";
 
   return (

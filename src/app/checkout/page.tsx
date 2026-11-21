@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Banknote, Loader2 } from "lucide-react";
 import { useCart } from "@/context/cart-context";
-import { products } from "@/lib/products";
+import { useCatalog } from "@/context/catalog-context";
 import { formatNaira } from "@/lib/format";
 import { LAST_ORDER_KEY, type OrderSummary } from "@/lib/orders";
 
 export default function CheckoutPage() {
   const { lines, subtotalNaira } = useCart();
   const router = useRouter();
+  const { getProduct } = useCatalog();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const errorRef = useRef<HTMLParagraphElement>(null);
@@ -27,7 +28,7 @@ export default function CheckoutPage() {
   });
 
   const items = lines
-    .map((line) => ({ line, product: products.find((p) => p.id === line.productId) }))
+    .map((line) => ({ line, product: getProduct(line.productId) }))
     .filter((x) => x.product);
 
   if (items.length === 0) {

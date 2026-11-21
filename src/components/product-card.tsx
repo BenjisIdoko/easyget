@@ -8,7 +8,7 @@ import { formatNaira } from "@/lib/format";
 import { useCart } from "@/context/cart-context";
 import { useToast } from "@/context/toast-context";
 import { ProductImage } from "@/components/product-image";
-import { getVendor } from "@/lib/menus";
+import { useCatalog } from "@/context/catalog-context";
 import { IconSwap } from "@/components/icon-swap";
 
 const accentByCategory = {
@@ -21,6 +21,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
   const { show } = useToast();
   const [saved, setSaved] = useState(false);
   const [added, setAdded] = useState(false);
+  const { getVendor } = useCatalog();
   const vendor = getVendor(product.vendorId);
 
   return (

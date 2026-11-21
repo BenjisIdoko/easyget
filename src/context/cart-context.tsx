@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { products } from "@/lib/products";
+import { useCatalog } from "@/context/catalog-context";
 import type { CartLine } from "@/lib/types";
 
 interface CartContextValue {
@@ -25,6 +25,7 @@ const CartContext = createContext<CartContextValue | null>(null);
 const STORAGE_KEY = "easyget-cart-v1";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
+  const { products, getProduct } = useCatalog();
   const [lines, setLines] = useState<CartLine[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
@@ -53,7 +54,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       // ignore malformed/local-storage-unavailable state
     }
     setHydrated(true);
-  }, []);
+  }, [products]);
 
   useEffect(() => {
     if (!hydrated) return;
@@ -101,10 +102,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const subtotalNaira = useMemo(
     () =>
       lines.reduce((sum, l) => {
-        const product = products.find((p) => p.id === l.productId);
+        const product = getProduct(l.productId);
         return sum + (product ? product.priceNaira * l.quantity : 0);
       }, 0),
-    [lines]
+    [lines, getProduct]
   );
 
   const value = useMemo(
