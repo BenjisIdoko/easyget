@@ -1,0 +1,326 @@
+{
+  "vendor": "Cilia's Delish",
+  "tagline": "DELICIOUS MOMENTS EVERYDAY",
+  "currency": "NGN",
+  "total_items": 54,
+  "categories": [
+    {
+      "category": "Alacarte Menu",
+      "item_count": 8,
+      "items": [
+        {
+          "name": "Catfish Pepper Soup",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat Pepper Soup",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Cilia's Special Stir Fry Noodles",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Yam and Egg Sauce",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Porridge Yam",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Porridge Beans with Plantain",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chips and Eggs",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken and Chips",
+          "price": 6500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Protein Menu",
+      "item_count": 11,
+      "items": [
+        {
+          "name": "Beef",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg",
+          "price": 500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Gizzard",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Kpomo",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Croaker",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Titus",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Goat Meat",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Cut 8",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Cut 4 Lap",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Cut 4 Chest",
+          "price": 4500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Turkey",
+          "price": 6000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Main Dish",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Jollof Rice",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fried Rice",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Asun Rice",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Rice and Stew",
+          "price": 2500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Stir Fry Spaghetti",
+          "price": 3000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Soup",
+      "item_count": 6,
+      "items": [
+        {
+          "name": "Egusi Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Afang Soup",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Banga Soup",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Ogbono Soup",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "White Soup",
+          "price": 3000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Vegetable Soup",
+          "price": 2000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Swallow",
+      "item_count": 5,
+      "items": [
+        {
+          "name": "Semo",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fufu",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Eba",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Poundo",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Starch",
+          "price": 1500,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Sides",
+      "item_count": 3,
+      "items": [
+        {
+          "name": "Moi Moi",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Plantain",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Coleslaw",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Snacks Menu",
+      "item_count": 10,
+      "items": [
+        {
+          "name": "Meat Pie",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Meat Pie (Mini)",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Pie",
+          "price": 2000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Pie (Mini)",
+          "price": 1500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Egg Roll",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Fish Roll",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Doughnut",
+          "price": 1000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Puff Puff",
+          "price": 100,
+          "currency": "NGN"
+        },
+        {
+          "name": "Buns",
+          "price": 150,
+          "currency": "NGN"
+        },
+        {
+          "name": "Zobo",
+          "price": 1000,
+          "currency": "NGN"
+        }
+      ]
+    },
+    {
+      "category": "Shawarma",
+      "item_count": 6,
+      "items": [
+        {
+          "name": "Cilia's Special Shawarma",
+          "price": 5000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Shawarma (Double Sausage)",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Chicken Shawarma (Single Sausage)",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef Shawarma (Double Sausage)",
+          "price": 4000,
+          "currency": "NGN"
+        },
+        {
+          "name": "Beef Shawarma (Single Sausage)",
+          "price": 3500,
+          "currency": "NGN"
+        },
+        {
+          "name": "Shawarma (Without Sausage)",
+          "price": 3500,
+          "currency": "NGN"
+        }
+      ]
+    }
+  ]
+}

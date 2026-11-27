@@ -94,10 +94,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const clear = useCallback(() => setLines([]), []);
 
-  const itemCount = useMemo(
-    () => lines.reduce((sum, l) => sum + l.quantity, 0),
-    [lines]
-  );
+  // Number of different items in the cart. Raising a quantity does not add an item.
+  const itemCount = lines.length;
 
   const subtotalNaira = useMemo(
     () =>

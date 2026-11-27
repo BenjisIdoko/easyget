@@ -28,7 +28,7 @@ export function BottomNav() {
           <Link
             key={href}
             href={href}
-            aria-label={href === "/cart" && itemCount > 0 ? `Cart, ${itemCount} items` : label}
+            aria-label={href === "/cart" && itemCount > 0 ? `Cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}` : label}
             aria-current={active ? "page" : undefined}
             className={`relative flex h-11 items-center gap-1.5 rounded-full px-4 text-xs font-semibold press ${
               active ? "bg-white text-ink" : "text-white/80"

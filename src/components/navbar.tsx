@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MapPin, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { CartBadge } from "@/components/cart-badge";
 
@@ -28,10 +28,6 @@ export function Navbar() {
           EasyGet
         </Link>
 
-        <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1.5 text-xs font-medium text-muted shadow-sm lg:hidden">
-          <MapPin className="h-3.5 w-3.5 text-brand" /> Lagos
-        </span>
-
         <nav className="hidden items-center gap-1 text-sm font-medium lg:flex">
           {links.map((l) => {
             const active = pathname === l.href;
@@ -52,7 +48,7 @@ export function Navbar() {
         <Link
           href="/cart"
           className="relative grid h-11 w-11 place-items-center rounded-full bg-ink text-white press hover:bg-brand-dark"
-          aria-label={itemCount > 0 ? `View cart, ${itemCount} items` : "View cart"}
+          aria-label={itemCount > 0 ? `View cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}` : "View cart"}
         >
           <ShoppingCart className="h-5 w-5" />
           <CartBadge className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white ring-2 ring-background" />
