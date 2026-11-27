@@ -4,6 +4,7 @@ import kennek from "@/data/menus/kennek_bites_easyget_menu.json";
 import deCravings from "@/data/menus/de_cravings_easyget_menu.json";
 import amalaEmpire from "@/data/menus/amala_empire_easyget_menu.json";
 import maximfood from "@/data/menus/maximfood_easyget_menu.json";
+import cilias from "@/data/menus/cilias_delish_easyget_menu.json";
 
 type RawMenu = {
   vendor: string;
@@ -38,6 +39,24 @@ const SECTION: Record<string, string> = {
   "Soft Drinks": "Drinks",
   "Frosty Frutty": "Drinks",
   "Packaging & Extras": "Extras",
+  "Protein Menu": "Proteins",
+  "Main Dish": "Rice & Pasta",
+  Swallow: "Swallows",
+  Sides: "Sides",
+  "Snacks Menu": "Bakery & Snacks",
+  "Alacarte Menu": "Fast Food",
+};
+
+// Items whose vendor heading doesn't match where shoppers expect them.
+const SECTION_BY_NAME: Record<string, string> = {
+  // Cilia's "Alacarte Menu" mixes soups, noodles and sides.
+  "Catfish Pepper Soup": "Soups",
+  "Goat Meat Pepper Soup": "Soups",
+  "Cilia's Special Stir Fry Noodles": "Rice & Pasta",
+  "Yam and Egg Sauce": "Sides",
+  "Porridge Yam": "Sides",
+  "Porridge Beans with Plantain": "Sides",
+  Zobo: "Drinks",
 };
 
 // Maximfood lists swallows under "Soup".
@@ -52,11 +71,15 @@ const EMOJI: [RegExp, string][] = [
   [/burger/i, "🍔"],
   [/salad/i, "🥗"],
   [/fries|chips|chip\b/i, "🍟"],
+  [/doughnut|puff puff/i, "🍩"],
+  [/noodle/i, "🍜"],
+  [/coleslaw/i, "🥗"],
+  [/gizzard/i, "🍗"],
   [/pepper soup|soup|egusi|ogbono|afang|oha|ofe/i, "🍲"],
   [/spaghetti|pasta|indomie/i, "🍝"],
   [/rice|coconut/i, "🍚"],
   [/chicken|turkey|wings|lap\b|asun/i, "🍗"],
-  [/fish|catfish|mackerel/i, "🐟"],
+  [/fish|catfish|mackerel|croaker|titus/i, "🐟"],
   [/snail/i, "🐌"],
   [/egg/i, "🥚"],
   [/beef|goat|kpomo|cow|assorted|meat/i, "🥩"],
@@ -65,7 +88,7 @@ const EMOJI: [RegExp, string][] = [
   [/beans|moi/i, "🫘"],
   [/tea|coffee/i, "☕"],
   [/bread|bun|pie|roll|cupcake|chin chin|popcorn|peanut/i, "🥐"],
-  [/pap|fufu|semo|amala|garri|poundo|semolina|pounded/i, "🥣"],
+  [/pap|fufu|semo|amala|garri|poundo|semolina|pounded|\beba\b|starch/i, "🥣"],
   [/smoothie|milkshake|parfait|yoghurt|juice|zobo|tiger|chapman|malt|drink|cola|fanta|schweppes|fayrouz|chivita|exotic|shot|ginger|crush|blast|twist|amber/i, "🥤"],
 ];
 
@@ -80,6 +103,7 @@ const sources: { id: string; menu: RawMenu }[] = [
   { id: "de-cravings", menu: deCravings },
   { id: "amala-empire", menu: amalaEmpire },
   { id: "maximfood", menu: maximfood },
+  { id: "cilias-delish", menu: cilias },
 ];
 
 export const vendors: Vendor[] = sources.map(({ id, menu }) => ({ id, name: menu.vendor }));
@@ -102,7 +126,7 @@ export const menuProducts: Product[] = sources.flatMap(({ id, menu }) =>
 
         const subcategory = SWALLOW_NAMES.has(item.name)
           ? "Swallows"
-          : (SECTION[cat.category] ?? cat.category);
+          : (SECTION_BY_NAME[item.name] ?? SECTION[cat.category] ?? cat.category);
 
         return {
           id: slug,
